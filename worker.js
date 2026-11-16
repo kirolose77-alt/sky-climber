@@ -77,7 +77,7 @@ export default {
       return json({ error: "Not found." }, 404);
     }
 
-    if (url.method === "GET" && (url.pathname === "/" || url.pathname === "/index.html")) {
+    if (request.method === "GET" && (url.pathname === "/" || url.pathname === "/index.html")) {
       const asset = await env.ASSETS.fetch(request);
       if (!asset.ok) return asset;
       let html = await asset.text();
